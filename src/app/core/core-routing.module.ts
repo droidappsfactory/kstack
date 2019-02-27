@@ -12,7 +12,11 @@ const routes: Routes = [
     path: '',
     component: ShellComponent,
     children: [
-      { path: 'home', component: HomeComponent },
+      { path: 'home', component: HomeComponent,
+      data: {
+        title: 'Example page',
+        subtitle: 'Page subtitle'
+      } },
       { path: '' , redirectTo: 'home', pathMatch: 'full'},
       { path: 'detail', component: DetailComponent },
       { path: 'profile', component: ProfileComponent },

@@ -7,12 +7,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { PostComponent } from './post/post.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [LoginComponent, HomeComponent, DetailComponent, ProfileComponent, PagenotfoundComponent, PostComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports: [LoginComponent, HomeComponent, DetailComponent, ProfileComponent, PagenotfoundComponent]
 })

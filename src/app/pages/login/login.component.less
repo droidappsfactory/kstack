@@ -1,59 +1,316 @@
-@import '../../../styles/variables.less';
 
 
-.layout-container{
-  box-sizing: border-box;
-  width: 100vw;
-  padding: 1%;
+// .layout-container {
+//   color: #f2f2f2;
+//   height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   background: #0c0c0c;
+//   flex: 4;
+//   transition: opacity 1s ease-in-out 0s;
+
+//   .watermark {
+//     flex: 1;
+//     padding: 64px 0 24px 64px;
+
+//     .icon {
+//       font-size: 43px;
+//     }
+
+//     .product {
+//       font-size: 26px;
+//       font-weight: 400;
+//       padding: 16px 0 0 4px;
+//       display: inline;
+//     }
+//   }
+
+//   .component-layout {
+//     flex: 3;
+//     align-self: center;
+//     width: 280px;
+
+//     .login-title {
+//       margin: 0px;
+//       text-align: center;
+//       margin-bottom: 30px;
+//       font-size: 24px;
+//     }
+
+//     input {
+//       width: 100%;
+//       align-self: center;
+//       margin: 0px 0px 30px 0px;
+//       height: 40px;
+//     }
+
+//     button {
+//       width: 100%;
+//       align-self: center;
+//       height: 40px;
+//     }
+//     a {
+//       margin: 20px;
+//       text-align: center;
+//     }
+
+//     p {
+//       height: 30px;
+//       line-height: 30px;
+//       vertical-align: middle;
+//       color: #d9d9d9;
+//       text-align: center;
+//       width: 100%;
+//       margin: 0px;
+//       padding: 0px;
+//     }
+//   }
+
+//   .footer {
+//     width: 360px;
+//     flex: 0 0 108px;
+//     align-self: center;
+//     text-align: center;
+//     opacity: .4;
+//   }
+// }
+
+@import (reference, multiple) "../../../../node_modules/@eds/vanilla/variables/global";
+@import (reference, multiple) "../../../../node_modules/@eds/vanilla/font/icon-names";
+
+.signin {
+  @import (reference) "../../../../node_modules/@eds/vanilla/variables/dark";
+
+  color: @text;
   height: 100vh;
-  margin: 0px;
-  background-color: black;
   display: flex;
-  justify-content: center;
-
-
-.component-layout{
-  display: flex;
-  height: 50vh;
-  width: 30vw;
   flex-direction: column;
-  align-self: center;
-  padding:4px;
+  background: @layer0;
+  transition: opacity 1s ease-in-out 0ms;
 
-  .login-title{
-    color: @white;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 24px;
-  }
-
-  input{
-    width: 80%;
-    align-self: center;
-    margin: 0px 0px 30px 0px;
-    height:40px;
-  }
-
-  button{
-    width: 80%;
-    align-self: center;
-    height:40px;
-  }
-  a{
-    margin: 20px;
-    text-align: center;
-  }
-
-  p{
-    height: 30px;
-    line-height: 30px;
-    vertical-align: middle;
-    color: #d9d9d9;
-    text-align: center;
+  input,
+  textarea {
     width: 100%;
-    margin: 0px;
-    padding: 0px;
+    color: @text;
+    background: @input-background;
+    border: 1px solid @input-border;
+    position: relative;
+    margin-bottom: 28px;
+    height: 40px;
+    padding-left: 5px;
+    &::placeholder {
+      color: white;
+    }
+
+    &:hover:not([disabled]):not([readonly]) {
+      border-color: @input-border-hover;
+    }
+
+    &:focus:not([disabled]):not([readonly]) {
+      border-color: @blue;
+    }
+
+    &:active {
+      border-color: @blue;
+    }
+
+    &[disabled] {
+      background-color: @input-background-disabled;
+      color: @input-text-disabled;
+    }
+  }
+
+  label {
+    color: @text;
+  }
+
+  &.hidden {
+    opacity: 0;
+  }
+
+  .watermark {
+    flex: 1;
+    padding: 64px 0 24px 64px;
+
+    .icon {
+      font-size: 43px;
+    }
+
+    .product {
+      font-size: 26px;
+      font-weight: 400;
+      padding: 16px 0 0 4px;
+      display: inline;
+    }
+  }
+  .error {
+    text-align: center;
+    padding: 28px;
+
+    &.hidden {
+      display: none;
+    }
+
+    &::before {
+      content: @icon-triangle;
+      padding-right: 8px;
+      font-family: "Ericsson Icons" !important;
+      vertical-align: middle;
+    }
+  }
+
+  .inputform {
+    flex: 2;
+    align-self: center;
+    width: 280px;
+
+    &.hidden {
+      display: none;
+    }
+
+    .field {
+      position: relative;
+      margin-bottom: 28px;
+      height: 40px;
+
+      .hint {
+        display: none;
+        margin: -20px 0 0 2px;
+        font-size: 12px;
+      }
+
+      label, input:not([type="checkbox"]) {
+        transition: all .2s;
+        touch-action: manipulation;
+      }
+
+      input:not([type="checkbox"]) {
+        margin-right: 0;
+        width: 100%;
+        height: 40px;
+        font-size: 14px;
+        padding-left: 8px;
+        cursor: text;
+        padding-top: 21px;
+
+        &::placeholder {
+          opacity: 0;
+        }
+
+        &:focus::placeholder {
+          opacity: 1;
+        }
+
+        &:invalid:not(:focus):not(:placeholder-shown),
+        &.invalid {
+          border-left: solid 3px @red !important;
+
+          &:hover {
+            border-left-color: @red;
+          }
+
+          & ~ .hint {
+            display: block;
+          }
+        }
+      }
+
+      input:not([type="checkbox"]) + label {
+        user-select: none;
+        cursor: text;
+      }
+
+      input:not([type="checkbox"]):placeholder-shown + label {
+        cursor: text;
+        transform: translate(8px, -2rem) scale(1);
+      }
+
+      input:not([type="checkbox"]):not(:placeholder-shown) + label,
+      input:not([type="checkbox"]):focus + label {
+        transform: scale(.9) translate(-6px, -45px);
+        opacity: .7;
+        cursor: pointer;
+      }
+
+      input:not([type="checkbox"]):hover ~ .reveal {
+        opacity: .5 !important;
+      }
+
+      input:not([type="checkbox"]):focus ~ .reveal {
+        opacity: .5;
+      }
+
+      // overides chrome autofill yellow background
+      input#username:-webkit-autofill,
+      input#password:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 50px rgb(10, 10, 10) inset;
+        -webkit-text-fill-color: @text;
+      }
+    }
+
+    input[type="checkbox"] + label {
+      margin: 10px 0 18px;
+    }
+
+    .reveal {
+      position: absolute;
+      top: 0;
+      right: 6px;
+      opacity: 0;
+      font-size: 16px;
+      padding: 10px;
+
+      &:hover {
+        opacity: 1 !important;
+        cursor: pointer;
+      }
+    }
+
+    .btn {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 38px;
+    }
+
+    .suffix {
+      font-size: 16px;
+    }
+  }
+
+  .help {
+    flex: 1;
+    text-align: center;
+  }
+
+  .tooltip .message.bottom-end {
+    right: -1px;
+  }
+
+  .footer {
+    width: 360px;
+    flex: 0 0 108px;
+    align-self: center;
+    text-align: center;
+    opacity: .4;
+  }
+
+  a.subtle-link {
+    color: @text;
   }
 }
 
+@media @tablet {
+  .signin {
+    .watermark {
+      .icon {
+        font-size: 55px;
+      }
+
+      .product {
+        display: block;
+        font-size: 16px;
+        width: 100px;
+      }
+    }
+  }
 }

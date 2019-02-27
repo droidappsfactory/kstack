@@ -1,11 +1,57 @@
-<div class="layout-container">
+<!-- <div class="layout-container">
+  <div class="watermark">
+    <i class="icon icon-econ"></i>
+    <div class="product">KStack</div>
+  </div>
+  <div class="component-layout">
+    <input placeholder="Email Address" type="email" />
+    <input placeholder="Password" type="password" />
 
-    <div class="component-layout">
-      <h2 class="login-title">Login</h2>
-      <input placeholder="Email Address" type="email"/>
-      <input placeholder="Password" type="password"/>
+    <button eds-button color="primary" [routerLink]="['/home']">Sign In</button>
+  </div>
 
-      <button [routerLink]="['/home']" >Sign In</button>
+  <div class="footer">
+    © Ericsson AB 2013-2018 - All Rights Reserved. <br />
+    No part of this software may be reproduced in any form without the written
+    permission of the copyright holder.
+  </div>
+</div> -->
 
+<div class="signin">
+  <div class="watermark">
+    <i class="icon icon-econ"></i>
+    <div class="product">KStack</div>
+  </div>
+
+  <div class="error hidden">Invalid username and/or password.</div>
+  <div class="inputform">
+    <input
+      type="text"
+      name="username"
+      id="username"
+      placeholder="Signum"
+      required
+    />
+
+    <input
+      type="password"
+      name="password"
+      id="password"
+      placeholder="Password"
+      tabindex="0"
+      required
+    />
+
+    <button eds-button class="primary" [routerLink]="['/']">Sign in</button>
+
+    <div class="help">
+      <a href="#" class="subtle-link">Having trouble signing in?</a>
     </div>
   </div>
+
+  <div class="footer">
+    © Ericsson AB 2013-2018 - All Rights Reserved. <br />
+    No part of this software may be reproduced in any form without the written
+    permission of the copyright holder.
+  </div>
+</div>
