@@ -1,0 +1,17 @@
+<header class="app-header">
+
+  <div class="items-container">
+    <div class="item">
+
+      <span class="main-title" [routerLink]="['/home']">KStack</span>
+      <div class="nav-item" [routerLink]="['/post']" routerLinkActive="active-tab" >Ask Question</div>
+      <div class="nav-item" [routerLink]="['/contributions']" routerLinkActive="active-tab" >My Contribution</div>
+    </div>
+
+  </div>
+
+  <div class="items-container">
+    <button [routerLink]="['/login']" routerLinkActive="login-active"  class="login-btn">Logout</button>
+  </div>
+
+</header>

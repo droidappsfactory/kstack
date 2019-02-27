@@ -1,0 +1,67 @@
+
+@import (reference) '../../../../styles/variables.less';
+
+.app-header{
+  display: flex;
+  background-color: @layer0;
+  justify-content: space-between;
+  color: @white;
+  height: 48px;
+  font-weight: 100;
+  user-select: none;
+  padding-left: @space-large;
+  padding-right: @space-large;
+  z-index: 999;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  .items-container{
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    color: @text;
+
+    .item{
+      display: flex;
+
+      .nav-item{
+       align-self: center;
+       margin-left: 3rem;
+       cursor: pointer;
+       outline: none;
+
+      }
+
+      .active-tab {
+
+        border-top: 2px solid @blue;
+      }
+
+      .main-title {
+        margin-left: @space-base;
+        display: inline;
+        font-size: 20px;
+        align-self: center;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+
+
+    .login-btn{
+      background-color: @blue;
+      border: none;
+      color: white;
+      padding: 5px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+
+    }
+
+  }
+}
