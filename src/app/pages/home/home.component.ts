@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/core/services/data.service';
+import { Observable } from 'rxjs';
+import { Post } from 'src/app/core/models/post.interface';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+
+  tags: string[] = ['EMM', ' Fiori', 'RNAM', 'EDS'];
+
+  posts: Observable<Post[]>;
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.posts = this.dataService.posts.asObservable();
+  }
+
+  onPostClicked(item: Post) {
+    this.dataService.postSelected.next(item);
   }
 
 }

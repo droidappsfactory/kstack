@@ -1,65 +1,102 @@
 <div class="row xl-12">
   <div class="column sm-12 lg-4 xl-3">
-    <div eds-tile class="xl-12">
-      <eds-tile-title>Your Stats</eds-tile-title>
+    <div class="tile sm-hide xl-12">
+      <h4 class="h4-stats">Your Stats</h4>
       <table>
         <tr>
           <td>Answers</td>
-          <td>10</td>
+          <td class="td-value">10</td>
         </tr>
 
         <tr>
           <td>Assists</td>
-          <td>40</td>
+          <td class="td-value">40</td>
         </tr>
 
         <tr>
           <td>Reach</td>
-          <td>990</td>
+          <td class="td-value">990</td>
         </tr>
       </table>
 
-      <h5>Top Individual Stats</h5>
+      <h4 class="h4-stats">Top Individual Stats</h4>
       <table>
         <tr>
           <td>Answers</td>
-          <td>100</td>
+          <td class="td-value">100</td>
         </tr>
 
         <tr>
           <td>Assists</td>
-          <td>300</td>
+          <td class="td-value">300</td>
         </tr>
 
         <tr>
           <td>Reach</td>
-          <td>8976</td>
+          <td class="td-value">8976</td>
         </tr>
       </table>
     </div>
 
-    <div eds-tile class="xl-12">
-      <eds-tile-title>Tags</eds-tile-title>
-      <button>Angular</button><button>5G</button><button>Network</button
-      ><button>Router</button>
+    <div class="tile xl-12">
+      <div class="header" style="display: block;">
+        Tags <i class="icon icon-edit" style="float:right"></i>
+      </div>
+      <div class="content">
+        <button
+          *ngFor="let tag of tags"
+          class="btn primary"
+          style="margin-left: 0px;margin-right: 4px;margin-bottom: 4px;"
+        >
+          {{ tag }}
+        </button>
+      </div>
     </div>
   </div>
 
   <div class="column sm-12 lg-8 xl-9">
     <div class="tile fullwidth div-searchbar">
-      <input id="searchbar" placeholder="Search" /><label for="searchbar"
-        ><button eds-button>Search</button></label
-      >
-      <button eds-button class="primary">
-        Filter <i class="icon icon-filter"></i>
+      <div class="input-group" style="width: 100%;margin: 0px 10px 0px 0px;">
+          <input
+          #inputTag
+          style="width: 100%;"
+          eds-input
+          
+          type="text"
+          placeholder="Search with questions, tags, roles, b units"
+        />
+        <button class="btn" (click)="inputTag.value = ''">
+          Enter
+        </button>
+      </div>
+     
+
+      <button class="btn primary btn-filter">
+        Filter
+        <i class="icon icon-filter"></i>
       </button>
     </div>
 
     <div eds-tile class="tile fullheight fullwidth">
       <eds-tile-title>Recent Questions</eds-tile-title>
+      <!-- <eds-tabs>
+        <eds-tab label="Global" selected>
 
-      <app-post-item></app-post-item>
-      
+        </eds-tab>
+        <eds-tab label="B Unit">
+          <p>Content for Tab 2</p>
+        </eds-tab>
+        <eds-tab label="Tags">
+          <p>Content for Tab 3</p>
+        </eds-tab>
+      </eds-tabs> -->
+      <app-post-item
+        *ngFor="let item of (posts | async)"
+        [post]="item"
+        [routerLink]="['/detail', item.title]"
+        (click)="onPostClicked(item)"
+      >
+      </app-post-item>
     </div>
   </div>
 </div>

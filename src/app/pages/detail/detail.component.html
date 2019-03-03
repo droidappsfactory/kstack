@@ -1,3 +1,117 @@
-<p>
-  detail works!
-</p>
+<div *ngIf="post" class="tile sm-12 lg-12 xl-12" style="padding: 20px 60px;">
+  <div class="row sm-12 lg-12 xl-12 bottom-divider">
+    <h2 class="title-header sm-9 xl-9 lg-9">{{post.title}}</h2>
+    <div class="sm-3 lg-3 xl-3">Likes</div>
+  </div>
+  <div class="row sm-12 lg-12 xl-12 bottom-divider">
+    <p style="margin-top: 40px;">
+      Detailed DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed DescriptionDetailed DescriptionDetailed
+      DescriptionDetailed Description
+    </p>
+
+    <div class="xl-12">
+      <h5>Attachments</h5>
+
+      <a target="_blank" href="https://www.w3schools.com/howto/img_forest.jpg">
+        <img
+          src="https://www.w3schools.com/howto/img_forest.jpg"
+          alt="Forest"
+          style="width:150px"
+        />
+      </a>
+    </div>
+
+    <div class="xl-12">
+      <h5>Tags</h5>
+      <button
+        *ngFor="let tag of tags"
+        class="btn"
+        style="margin-left: 0px;margin-right: 4px;margin-bottom: 4px;"
+      >
+        {{ tag }}
+      </button>
+    </div>
+
+    <div class="xl-12">
+      <h5 style="text-align: right">Posted by</h5>
+      <div style="text-align: right">SriMaharshi Manchem</div>
+      <div style="text-align: right">srimaharshi.s.manchem@ericsson.com</div>
+    </div>
+
+    <div class="xl-12">
+      <h4>Comments</h4>
+      <p *ngFor="let comment of comments" style="padding: 10px;margin: 0px 100px; border-top: 1px solid #eff0f1">{{ comment }}</p>
+      <a  style="margin: 5px 100px"
+        *ngIf="!showCommentBox; else commentBox"
+        (click)="showCommentBox = !showCommentBox"
+        >add comment</a
+      >
+      <ng-template #commentBox>
+        <div  style="padding: 10px;margin: 0px 100px;" class="row xl-12">
+            <textarea #addCommentText class="comment-box column xl-10" placeholder="Add Comment">
+              </textarea>
+
+              <div class="coulmn xl-2">
+                  <button eds-button class="row"
+                  (click)="addComment(addCommentText.value);addCommentText.value=''"
+                >
+                  Add Comment
+                </button>
+                <button eds-button class="row" (click)="showCommentBox = !showCommentBox">Cancel</button>
+
+              </div>
+        </div>
+
+
+      </ng-template>
+    </div>
+  </div>
+</div>
+<div class="tile sm-12 lg-12 xl-12" style="padding: 20px 60px;">
+    <div class="row sm-12 lg-12 xl-12 bottom-divider">
+        <h2 class="title-header">Answers</h2>
+    </div>
+
+    <div class="row sm-12 lg-12 xl-12 bottom-divider">
+      <div class="xl-12">
+          <h3>Try below steps</h3>
+          <div>1. Install EMM <br>
+            2. Validate Signum credentials
+          </div>
+      </div>
+
+
+    </div>
+</div>
+<div class="tile sm-12 lg-12 xl-12" style="padding: 20px 60px;">
+    <div class="row sm-12 lg-12 xl-12 bottom-divider">
+        <h2 class="title-header">Post Answers</h2>
+    </div>
+
+    <div class="row sm-12 lg-12 xl-12">
+      <div class="column sm-12 lg-12 xl-12" style="padding: 40px;">
+          <textarea style="width: 100%;resize: none;height: 200px;" placeholder="Please type here">
+
+            </textarea>
+      </div>
+
+      <div class="column sm-12 lg-12 xl-12">
+          <button eds-button class="primary">Submit</button>
+      </div>
+
+    </div>
+
+</div>

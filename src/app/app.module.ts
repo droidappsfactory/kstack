@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
 import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
+import { CoreRoutingModule } from './core/core-routing.module';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    CoreModule,
+    CoreRoutingModule,
     FormsModule,
     AppRoutingModule,
     PagesModule

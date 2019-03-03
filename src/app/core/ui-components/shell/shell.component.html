@@ -1,31 +1,42 @@
 <eds-system-bar [title]="'KStack'" [acronym]="'KS'" [username]="'ensaimr'" (settingsHandler)="settingsHandler()">
-  <eds-system-bar-items><button style="margin-right: 20px;" [routerLink]="['/post']" eds-button class="primary">Post Question</button> </eds-system-bar-items>
+  <eds-system-bar-items><button style="margin-right: 20px;" [routerLink]="['/post']" eds-button class="primary">Post Question</button>
+    <eds-switch style="margin:0px 60px;"
+      [(ngModel)]="isLightTheme"
+      (ngModelChange)="toggleTheme($event)"
+    >
+      <eds-switch-on>Light</eds-switch-on>
+      <eds-switch-off>Dark</eds-switch-off>
+    </eds-switch>
+  </eds-system-bar-items>
 </eds-system-bar>
 <main>
   <eds-settings [opened]="settingsOpened">
     <div class="profile">
       <i class="icon icon-profile"></i>
-      <div class="username">Username</div>
+      <div class="username">ensaimr</div>
     </div>
     <div class="content">
-      <div class="title">My settings</div>
-      <div class="item">
+      <div class="title">Details</div>
+      <div class="row item">
         <div class="left">
-          Switch theme
+          Email
         </div>
         <div class="right">
-          <eds-switch
-            [(ngModel)]="isLightTheme"
-            (ngModelChange)="toggleTheme($event)"
-          >
-            <eds-switch-on>Light</eds-switch-on>
-            <eds-switch-off>Dark</eds-switch-off>
-          </eds-switch>
+          srimaharshi.s.manchem@ericsson
+        </div>
+      </div>
+
+      <div class="row item">
+        <div class="left">
+          BU Unit
+        </div>
+        <div class="right">
+          RNAM
         </div>
       </div>
     </div>
     <div class="bottom">
-      <button eds-button class="big" [routerLink]="['/login']">
+      <button eds-button class="big warning" [routerLink]="['/login']">
         <i class="icon icon-log-out"></i> Sign out
       </button>
     </div>

@@ -1,3 +1,122 @@
-<p>
-  post works!
-</p>
+<div class="tile sm-6 lg-6 xl-6" style="padding: 20px 60px;">
+  <div class="row">
+    <form
+      [formGroup]="postForm"
+      
+      class="column sm-7 lg-7 xl-7"
+    >
+      <div class="row">
+        <div class="column sm-12 lg-12 xl-12">
+          <h2>Post Question</h2>
+          <label for="input-title">Title</label>
+          <input
+            id="input-title"
+            formControlName="title"
+            class="width-dimen input-question input"
+            placeholder="Question Here"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column sm-12 lg-12 xl-12">
+          <label for="textarea-description">Detailed description</label>
+          <textarea
+            id="textarea-description"
+            class="width-dimen input-description"
+            eds-input
+            formControlName="description"
+            placeholder="Detailed Description"
+          >
+          </textarea>
+
+          <label for="upload-input"> Attachment </label>
+          <input
+            class="width-dimen"
+            id="upload-input"
+            type="file"
+            placeholder="Upload"
+          />
+
+          <label for="input-tags"> Tags </label>
+          <!-- <input
+                class="width-dimen"
+                id="input-tags"
+                type="text"
+                placeholder="Tag relevant areas"
+              /> -->
+
+          <div id="input-tags" class="width-dimen" class="input-group">
+            <input
+              #inputTag
+              class="width-dimen"
+              type="text"
+              placeholder="Tag relevant areas"
+            />
+            <button
+              class="btn"
+              style="margin-left: -66px"
+              (click)="addTag(inputTag.value); inputTag.value = ''"
+            >
+              Enter
+            </button>
+          </div>
+          <div class="width-dimen" *ngIf="tags" style="line-height: 10px">
+            <button
+              eds-button
+              *ngFor="let tag of tags"
+              style="margin-bottom: 4px;
+                margin-left: 0px;
+                margin-right: 4px;"
+              (click)="removeTag(tag)"
+            >
+              {{ tag }}<i class="icon icon-cross-small" style="margin:0px"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" (click)="onSubmit()" class="btn primary" style="width: 20%;">
+        Submit Question
+      </button>
+    </form>
+    <div class="column sm-5 lg-5 xl-5" style="padding-left: 20px;">
+        <h4>Preview</h4>
+      <div *ngIf="postForm.value.title" class="row" style="margin-bottom: 20px;">
+        <div class="column sm-12 lg-12 xl-12">
+
+          <label for="title-prev">Title</label>
+          <div id="title-prev" class="div-preview">
+            {{ postForm.value.title }}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="postForm.value.description" class="row" style="margin-bottom: 20px;" >
+        <div class="column sm-12 lg-12 xl-12">
+          <label for="title-prev">Description</label>
+          <div id="title-prev" class="div-preview">
+            {{ postForm.value.description }}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="tags.length !== 0" class="row" style="margin-bottom: 20px;">
+          <div class="column sm-12 lg-12 xl-12">
+            <label for="title-prev">Tags</label>
+            <div class="width-dimen" style="line-height: 10px">
+                <button
+                  eds-button
+                  *ngFor="let tag of tags"
+                  style="margin-bottom: 4px;
+                    margin-left: 0px;
+                    margin-right: 4px;"
+                >
+                  {{ tag }}
+                </button>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
