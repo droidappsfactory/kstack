@@ -4,7 +4,6 @@ import { ShellComponent } from './ui-components/shell/shell.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { DetailComponent } from '../pages/detail/detail.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
-import { PagenotfoundComponent } from '../pages/pagenotfound/pagenotfound.component';
 import { PostComponent } from '../pages/post/post.component';
 
 const routes: Routes = [
@@ -12,15 +11,12 @@ const routes: Routes = [
     path: '',
     component: ShellComponent,
     children: [
-      { path: 'home', component: HomeComponent,
-      data: {
-        title: 'Example page',
-        subtitle: 'Page subtitle'
-      } },
+      { path: 'home', component: HomeComponent },
       { path: '' , redirectTo: 'home', pathMatch: 'full'},
-      { path: 'detail', component: DetailComponent },
+      { path: 'detail/:id', component: DetailComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'post', component: PostComponent },
+      { path: 'contributions', loadChildren: '../contributions/contributions.module#ContributionsModule' },
     ]
   }
 ];

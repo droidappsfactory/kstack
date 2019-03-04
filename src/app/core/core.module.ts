@@ -6,7 +6,6 @@ import { CoreRoutingModule } from './core-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PagesModule } from '../pages/pages.module';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [ShellComponent, HeaderComponent],
@@ -16,6 +15,9 @@ import { BrowserModule } from '@angular/platform-browser';
     CoreRoutingModule,
     SharedModule,
     PagesModule
+  ],
+  exports: [
+    ShellComponent
   ]
 })
 export class CoreModule { }

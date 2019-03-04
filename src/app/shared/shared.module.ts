@@ -14,7 +14,8 @@ import {
   ProgressBarModule,
   TableModule,
   AccordionModule,
-  InputModule
+  InputModule,
+  TabsModule
 } from '@eds/angular';
 import { PostItemComponent } from './ui-components/post-item/post-item.component';
 
@@ -34,10 +35,12 @@ import { PostItemComponent } from './ui-components/post-item/post-item.component
     SystemBarModule,
     TableModule,
     TileModule,
-    TreeModule
+    TreeModule,
+    TabsModule
   ],
   providers: [ThemeService],
   exports: [
+    TabsModule,
     AccordionModule,
     AppBarModule,
     ButtonModule,

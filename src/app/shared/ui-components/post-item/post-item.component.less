@@ -1,0 +1,125 @@
+@import (reference) '../../../../../node_modules/@eds/vanilla/variables/global.less';
+@import (reference) '../../../../../node_modules/@eds/vanilla/variables/dark.less';
+@import (reference) '../../../../../node_modules/@eds/vanilla/font/icon-names.less';
+@import (reference) '../../../../../node_modules/@eds/vanilla/common/styles.less';
+
+.card {
+  max-width: 100%;
+  padding: @space-large;
+  margin: @space-base;
+  background-color: @input-background;
+  border: 1px solid transparent;
+
+  &.selected {
+    border: 1px solid @blue;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(45, 45, 45);
+  }
+
+  &.draggable {
+    &:hover {
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    }
+
+    .left .title::before {
+      content: @icon-drag-handle;
+      font-family: "Ericsson Icons";
+      font-size: 18px;
+      vertical-align: baseline;
+      margin-right: @space-base;
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0;
+
+    .left {
+      flex: 1;
+
+      .title {
+        font-size: 20px;
+        font-weight: 400px;
+        font-family: "Ericsson Hilda";
+        font-weight: @weight-medium;
+      }
+
+      .subtitle {
+        font-size: 12px;
+        opacity: .6;
+        display: block;
+        margin-top: @space-small;
+        margin-left: 0;
+      }
+    }
+
+    .right {
+      .action {
+        font-size: 20px;
+        font-weight: @weight-medium;
+
+        i {
+          font-size: 16px;
+          font-weight: @weight-regular;
+          vertical-align: baseline;
+        }
+      }
+    }
+  }
+
+  .content {
+    padding-top: 16px;
+
+    .button-tag{
+      min-width: 40px;font-size: 12px;border: none;border-radius: 0px;padding: .4em;margin-left: 4px;
+    }
+  }
+  .cardfooter{
+    padding: 0px !important;
+
+    text-align: right;
+
+    h5{
+      margin: 0px;
+      padding: 0px;
+    }
+  }
+}
+
+.table-question-stats{
+  height: 100%;
+  width: 100%;
+
+  tr{
+    width: 50%;
+    td{
+      width: 50%;
+    }
+  }
+}
+
+.number-display{
+  display: inline-block;
+    height: 38px;
+    min-width: 38px;
+    margin: 0 3px 0 0;
+    font-size: 11px;
+    color: #848d95;
+    padding: 7px 6px;
+}
+.stat-number{
+  text-align: center;
+  vertical-align: middle;
+  font-size: 22px;
+  font-weight: 400;
+}
+.stat-field{
+  text-align: center;
+  vertical-align: middle;
+  font-size: 11px;
+  font-weight: 200;
+}

@@ -8,14 +8,16 @@ import { RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { PostComponent } from './post/post.component';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [LoginComponent, HomeComponent, DetailComponent, ProfileComponent, PagenotfoundComponent, PostComponent],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     RouterModule,
     SharedModule
   ],
-  exports: [LoginComponent, HomeComponent, DetailComponent, ProfileComponent, PagenotfoundComponent]
+  exports: [LoginComponent, DetailComponent, ProfileComponent, PagenotfoundComponent]
 })
 export class PagesModule { }

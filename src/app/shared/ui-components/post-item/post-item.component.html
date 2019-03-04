@@ -1,10 +1,91 @@
-<div class="tile fullwidth">
-    <div class="div-posts">
-      <div>Value, No of Answers, Reach</div>
-      <h3>Question goes here</h3>
-      <div>Tag1 Tag2 Tag3</div>
-      <div>Created time and Author details.</div>
-      <div>Attachments preview<button>Attach</button></div>
-      <div>Clarifications<button>Comment</button></div>
+<!-- <div class="card">
+  <div class="header">
+    <div class="left">
+      <div class="title">{{post.title}}</div>
+
     </div>
+  </div>
+  <div><button>Android</button><button>EMM</button><button>RNAM</button></div>
+  <div class="content">
+    <p>
+      {{post.description}}
+    </p>
+    <div>
+      Attachments: pic1
+    </div>
+  </div>
+  <div class="cardfooter">
+    SriMaharshi Manchem
+    <h5>srimaharshi.s.manchem@ericsson</h5>
+
+
+  </div>
+</div> -->
+
+<div class="card xl-12">
+  <div class="row">
+    <div class="column xl-2">
+      <table class="table-question-stats">
+        <tr>
+          <td>
+            <div class="stat-number">
+              4
+            </div>
+            <div class="stat-field">Votes</div>
+          </td>
+          <td style="border: 1px solid #36B07F; border-radius: 3px;">
+            <div class="stat-number" style="color:#36B07F">
+              1
+            </div>
+            <div class="stat-field" style="color:#36B07F">Answers</div>
+          </td>
+        </tr>
+        <tr>
+          <td [ngStyle]="{border: post.title === 'Title Two'? '1px solid #F52323' : '1px solid #F78521'}" style="border-width: 1px;border-style:  solid; border-radius: 3px;">
+            <div class="stat-number" [ngStyle]="{color: post.title === 'Title Two'? '#F52323' : '#F78521'}" >
+              {{post.title === 'Title Two'? 'H':'M'}}
+            </div>
+            <div class="stat-field" [ngStyle]="{color: post.title === 'Title Two'? '#F52323' : '#F78521'}">Priority</div>
+          </td>
+          <td>
+            <div class="stat-number">
+              10
+            </div>
+            <div class="stat-field">Views</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="column xl-10" style="padding-left: 15px;">
+      <div class="header">
+        <div class="left">
+          <div class="title" style="color:#0082F0">{{ post.title }}</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <p>
+          {{ post.description }}
+        </p>
+        <div>
+          <button eds-button class="primary button-tag">Android</button
+          ><button eds-button class="primary button-tag">EMM</button
+          ><button eds-button class="primary button-tag">RNAM</button>
+        </div>
+        <div
+        style="margin-top: 8px;">
+          <tr>
+            <td>Attachments : </td>
+            <td>Picture1.jpg,</td>
+          </tr>
+        </div>
+      </div>
+
+      <div class="cardfooter">
+        SriMaharshi Manchem
+        <h5>srimaharshi.s.manchem@ericsson</h5>
+      </div>
+    </div>
+  </div>
 </div>
