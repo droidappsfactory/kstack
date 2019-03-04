@@ -27,31 +27,51 @@
     <div class="column xl-2">
       <table class="table-question-stats">
         <tr>
-          <td>
-            <div class="stat-number">
-              4
-            </div>
-            <div class="stat-field">Votes</div>
-          </td>
           <td style="border: 1px solid #36B07F; border-radius: 3px;">
             <div class="stat-number" style="color:#36B07F">
               1
             </div>
             <div class="stat-field" style="color:#36B07F">Answers</div>
           </td>
+          <td>
+            <div class="stat-number">
+              4
+            </div>
+            <div class="stat-field">Votes</div>
+          </td>
         </tr>
         <tr>
-          <td [ngStyle]="{border: post.title === 'Title Two'? '1px solid #F52323' : '1px solid #F78521'}" style="border-width: 1px;border-style:  solid; border-radius: 3px;">
-            <div class="stat-number" [ngStyle]="{color: post.title === 'Title Two'? '#F52323' : '#F78521'}" >
-              {{post.title === 'Title Two'? 'H':'M'}}
-            </div>
-            <div class="stat-field" [ngStyle]="{color: post.title === 'Title Two'? '#F52323' : '#F78521'}">Priority</div>
-          </td>
           <td>
             <div class="stat-number">
               10
             </div>
             <div class="stat-field">Views</div>
+          </td>
+          <td
+            [ngStyle]="{
+              border:
+                post.title === 'Title Two'
+                  ? '1px solid #F52323'
+                  : '1px solid #F78521'
+            }"
+            style="border-width: 1px;border-style:  solid; border-radius: 3px;"
+          >
+            <div
+              class="stat-number"
+              [ngStyle]="{
+                color: post.title === 'Title Two' ? '#F52323' : '#F78521'
+              }"
+            >
+              {{ post.title === "Title Two" ? "H" : "M" }}
+            </div>
+            <div
+              class="stat-field"
+              [ngStyle]="{
+                color: post.title === 'Title Two' ? '#F52323' : '#F78521'
+              }"
+            >
+              Priority
+            </div>
           </td>
         </tr>
       </table>
@@ -73,10 +93,9 @@
           ><button eds-button class="primary button-tag">EMM</button
           ><button eds-button class="primary button-tag">RNAM</button>
         </div>
-        <div
-        style="margin-top: 8px;">
+        <div style="margin-top: 8px;">
           <tr>
-            <td>Attachments : </td>
+            <td>Attachments :</td>
             <td>Picture1.jpg,</td>
           </tr>
         </div>

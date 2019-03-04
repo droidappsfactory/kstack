@@ -20,7 +20,22 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.postSelected.subscribe(data => {
-      this.post = data;
+      if(data){
+        this.post = data;
+      }else{
+        this.post =  {
+          title: 'How to setup and use EDS angular components in my project?',
+          description: `We are devloping new web app for Info Service in Angular.
+          We need help in integrating existing EDS Angular library in our project.Please help.`,
+          attachments: ['string[];'],
+          tags: ['string[];'],
+          createdby: 'string;',
+          email: 'string;',
+          createdOn: new Date(),
+          answers: 2
+        }
+      }
+
     });
   }
 
