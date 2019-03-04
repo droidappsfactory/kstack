@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { ThemeService } from '@eds/angular';
 import { Post } from 'src/app/core/models/post.interface';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post-item',
@@ -15,7 +16,7 @@ export class PostItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    console.log()
   }
 
 }
