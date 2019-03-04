@@ -72,7 +72,7 @@
     <div class="appbody">
       <div class="appnav" [ngClass]="{ hidden: !menuOpened }">
         <eds-tree mode="navigation">
-          <eds-tree-item route="/">Home</eds-tree-item>
+          <eds-tree-item route="/" (click)="menuHandler()">Home</eds-tree-item>
           <eds-tree-item route="/contributions">Contributions</eds-tree-item>
           <!-- <eds-tree-item route="dashboard"></eds-tree-item
           >
