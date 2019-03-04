@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/core/services/data.service';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/core/models/post.interface';
+import * as fromAuth from '../../store/auth/auth.reducer';
+import { Store, select } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.state';
 
 @Component({
   selector: 'app-home',
@@ -15,9 +18,12 @@ export class HomeComponent implements OnInit {
 
   posts: Observable<Post[]>;
 
-  constructor(private dataService: DataService) { }
+  loggedInUser$: Observable<string>;
+
+  constructor(private dataService: DataService,private store: Store<AppState>) { }
 
   ngOnInit() {
+    this.loggedInUser$ = this.store.pipe(select(fromAuth.getLoggedInUser));
     this.posts = this.dataService.posts.asObservable();
   }
 

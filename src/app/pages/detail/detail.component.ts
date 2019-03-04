@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../../core/models/post.interface';
 import { DataService } from '../../core/services/data.service';
+import { Store, select } from '@ngrx/store';
 
 @Component({
   selector: 'app-detail',

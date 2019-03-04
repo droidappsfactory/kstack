@@ -9,6 +9,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { PostComponent } from './post/post.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from '../store/auth/auth.reducer';
 
 @NgModule({
   declarations: [LoginComponent, HomeComponent, DetailComponent, ProfileComponent, PagenotfoundComponent, PostComponent],
@@ -16,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forFeature('auth',reducer)
   ],
   exports: [LoginComponent, DetailComponent, ProfileComponent, PagenotfoundComponent]
 })

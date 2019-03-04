@@ -7,6 +7,8 @@ import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 import { CoreRoutingModule } from './core/core-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './store/auth/auth.reducer';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { CoreRoutingModule } from './core/core-routing.module';
     CoreRoutingModule,
     FormsModule,
     AppRoutingModule,
-    PagesModule
+    PagesModule,
+    StoreModule.forRoot({}),
   ],
   providers: [],
   bootstrap: [AppComponent]

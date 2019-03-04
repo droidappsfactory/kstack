@@ -21,6 +21,7 @@
     "@angular/router": "~7.1.0",
     "@eds/angular": "^0.9.4",
     "@eds/vanilla": "^2.2.0",
+    "@ngrx/store": "^7.3.0",
     "core-js": "^2.5.4",
     "d3v4": "^4.2.2",
     "prismjs": "^1.15.0",

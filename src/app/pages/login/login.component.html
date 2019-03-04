@@ -24,8 +24,9 @@
   </div>
 
   <div class="error hidden">Invalid username and/or password.</div>
-  <div class="inputform">
+  <div [formGroup]="loginform" class="inputform">
     <input
+    formControlName="username"
       type="text"
       name="username"
       id="username"
@@ -34,6 +35,7 @@
     />
 
     <input
+    formControlName="password"
       type="password"
       name="password"
       id="password"
@@ -42,7 +44,9 @@
       required
     />
 
-    <button eds-button class="primary" [routerLink]="['/']">Sign in</button>
+    <button eds-button class="primary" (click)="onSignInClicked()" [routerLink]="['/']">
+      Sign in
+    </button>
 
     <div class="help">
       <a href="#" class="subtle-link">Having trouble signing in?</a>
