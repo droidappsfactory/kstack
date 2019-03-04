@@ -2,7 +2,7 @@
   <div class="row">
     <form
       [formGroup]="postForm"
-      
+
       class="column sm-7 lg-7 xl-7"
     >
       <div class="row">
@@ -27,6 +27,7 @@
             eds-input
             formControlName="description"
             placeholder="Detailed Description"
+            style="white-space: pre-wrap;"
           >
           </textarea>
 
@@ -95,7 +96,7 @@
       <div *ngIf="postForm.value.description" class="row" style="margin-bottom: 20px;" >
         <div class="column sm-12 lg-12 xl-12">
           <label for="title-prev">Description</label>
-          <div id="title-prev" class="div-preview">
+          <div id="title-prev" class="div-preview" style="white-space: pre-wrap;">
             {{ postForm.value.description }}
           </div>
         </div>

@@ -10,13 +10,16 @@ export class DataService {
     {
       title: 'How to setup and use EDS angular components in my project?',
       description: `We are devloping new web app for Info Service in Angular.
-      We need help in integrating existing EDS Angular library in our project.Please help.`,
+      We need help in integrating existing EDS Angular library in our project.
+      Tried to install EDS Angular using npm install @eds/angular.
+      Please check the error in screenshot attached.Please help.`,
       attachments: ['string[];'],
       tags: ['string[];'],
       createdby: 'string;',
       email: 'string;',
       createdOn: new Date(),
-      answers: 2
+      answers: 2,
+      favorite: true
     },
     {
       title: 'Title Two',
@@ -26,7 +29,8 @@ export class DataService {
       createdby: 'string;',
       email: 'string;',
       createdOn: new Date(),
-      answers: 2
+      answers: 2,
+      favorite: false
     },
     {
       title: 'Title',
@@ -36,7 +40,8 @@ export class DataService {
       createdby: 'string;',
       email: 'string;',
       createdOn: new Date(),
-      answers: 2
+      answers: 2,
+      favorite: false
     },
     {
       title: 'Title Two',
@@ -46,7 +51,8 @@ export class DataService {
       createdby: 'string;',
       email: 'string;',
       createdOn: new Date(),
-      answers: 2
+      answers: 2,
+      favorite: false
     },
     {
       title: 'Title',
@@ -56,7 +62,8 @@ export class DataService {
       createdby: 'string;',
       email: 'string;',
       createdOn: new Date(),
-      answers: 2
+      answers: 2,
+      favorite: true
     },
     {
       title: 'Title Two',
@@ -66,7 +73,8 @@ export class DataService {
       createdby: 'string;',
       email: 'string;',
       createdOn: new Date(),
-      answers: 2
+      answers: 2,
+      favorite: false
     }
   ]);
 

@@ -1,8 +1,8 @@
 <div class="row sm-12 lg-12 xl-12">
   <div class="tile sm-12 lg-12 xl-12">
     <div class="row sm-12 lg-12 xl-12">
-      <div class="sm-1 xl-1 lg-1" >
-        UpVote
+      <div class="sm-1 xl-1 lg-1" style="display: flex;justify-content:center;vertical-align: middle;">
+        <i [ngClass]="post.favorite ? 'icon icon-favorite-solid' : 'icon icon-favorite'" style="font-size: 24px;align-self: center;"></i> <p style="padding: 0px;margin: 0px;vertical-align: middle">20</p>
       </div>
       <div class="sm-10 xl-10 lg-10 div-title">
         <h3>{{ post.title }}</h3></div>
@@ -11,10 +11,10 @@
           <tr style="width: 100%;height: 100%;">
 
             <td>
-              Views
+              20
             </td>
             <td>
-              Answers
+              1
             </td>
 
           </tr>
@@ -39,31 +39,17 @@
       <div class="row sm-12 lg-12 xl-12">
   <div class="sm-1 xl-1 lg-1"></div>
   <div class="sm-10 lg-10 xl-10">
-    <p style="margin-top: 40px;">
-      Detailed DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed DescriptionDetailed DescriptionDetailed
-      DescriptionDetailed Description
+    <p style="margin-top: 40px;font-size: 18px">
+      {{post.description}}
     </p>
 
     <div class="xl-12">
       <h5>Attachments</h5>
 
-      <a target="_blank" href="https://www.w3schools.com/howto/img_forest.jpg">
+      <a target="_blank" href="../../../assets/eds-angular-issue.PNG">
         <img
-          src="https://www.w3schools.com/howto/img_forest.jpg"
-          alt="Forest"
+          src="../../../assets/eds-angular-issue.PNG"
+          alt="eds angular"
           style="width:150px"
         />
       </a>
@@ -81,9 +67,10 @@
     </div>
 
     <div class="xl-12">
-      <h5 style="text-align: right">Posted by</h5>
+      <h5 style="text-align: right;margin: 5px 0px">Posted by</h5>
       <div style="text-align: right">SriMaharshi Manchem</div>
       <div style="text-align: right">srimaharshi.s.manchem@ericsson.com</div>
+      <div style="text-align: right">{{post.createdOn | date: 'dd/MMM/yyyy'}}</div>
     </div>
 
     <div class="xl-12">
@@ -101,25 +88,24 @@
         >add comment</a
       >
       <ng-template #commentBox>
-        <div style="padding: 10px;margin: 0px 100px;" class="row xl-12">
+        <div style="margin: 0px 100px;" class="row xl-12">
           <textarea
             #addCommentText
-            class="comment-box column xl-9"
-            placeholder="Add Comment"></textarea>
+            class="column xl-9"
+            placeholder="Add Comment" style="border: 1px solid"></textarea>
 
           <div class="coulmn xl-2">
             <button
               eds-button
               class="row"
-              (click)="
-                addComment(addCommentText.value); addCommentText.value = ''
-              "
-            >
+              style="width: 100%"
+              (click)="addComment(addCommentText.value); addCommentText.value = ''">
               Add Comment
             </button>
             <button
               eds-button
               class="row"
+              style="width: 100%;margin-left: 0px"
               (click)="showCommentBox = !showCommentBox"
             >
               Cancel
@@ -148,8 +134,8 @@
         <div class="xl-12">
           <h3>Try below steps</h3>
           <div>
-            1. Install EMM <br />
-            2. Validate Signum credentials
+            1. Run this command  npm config set @eds:registry https://arm.rnd.ki.sw.ericsson.se/artifactory/api/npm/proj-eds-npm-local <br />
+            2. npm i @eds/install
           </div>
         </div>
       </div>
@@ -176,7 +162,7 @@
               <div class="row sm-12 lg-12 xl-12">
                 <div class="column sm-12 lg-12 xl-12">
                   <textarea
-                    style="width: 100%;resize: none;height: 200px;"
+                    style="width: 100%;resize: none;height: 200px;white-space: pre-wrap;"
                     placeholder="Please type here"
                   ></textarea>
                 </div>

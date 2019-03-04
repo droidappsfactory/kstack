@@ -11,7 +11,7 @@ export class DetailComponent implements OnInit {
   tags: string[] = ['EMM', ' Fiori', 'RNAM', 'EDS'];
   comments: string[] = [
     'Can you provide me screenshot',
-    'Is it related to certification creation'
+    'Can check your npm registry for eds repository link'
   ];
   showCommentBox = false;
   post: Post;
@@ -20,9 +20,9 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.postSelected.subscribe(data => {
-      if(data){
+      if (data) {
         this.post = data;
-      }else{
+      } else {
         this.post =  {
           title: 'How to setup and use EDS angular components in my project?',
           description: `We are devloping new web app for Info Service in Angular.
@@ -32,14 +32,17 @@ export class DetailComponent implements OnInit {
           createdby: 'string;',
           email: 'string;',
           createdOn: new Date(),
-          answers: 2
-        }
+          answers: 2,
+          favorite: false
+        };
       }
 
     });
   }
 
   addComment(value) {
-    this.comments.push(value);
+    if (value) {
+      this.comments.push(value);
+    }
   }
 }

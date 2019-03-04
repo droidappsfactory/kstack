@@ -7,4 +7,5 @@ export interface Post {
   email: string;
   createdOn: Date;
   answers: number;
+  favorite: boolean;
 }
