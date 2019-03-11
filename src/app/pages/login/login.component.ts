@@ -3,7 +3,7 @@ import { Store } from "@ngrx/store";
 import * as fromAuth from '../../store/auth/auth.reducer';
 import { AppState } from 'src/app/store/app.state';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-
+import * as authActions from '../../store/auth/auth.action';
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -27,9 +27,7 @@ export class LoginComponent implements OnInit {
 
   onSignInClicked() {
     console.log('sign in clicked', this.loginform.value);
-    this.store.dispatch({
-      type: 'LOGGED_IN',
-      payload: {username: this.loginform.value.username, loggedIn: true}
-    });
+    //{username: this.loginform.value.username, loggedIn: true}
+    this.store.dispatch(new authActions.LogginUser({username: this.loginform.value.username, loggedIn: true}));
   }
 }

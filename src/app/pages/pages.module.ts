@@ -11,6 +11,8 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from '../store/auth/auth.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from '../store/auth/auth.effects';
 
 @NgModule({
   declarations: [LoginComponent, HomeComponent, DetailComponent, ProfileComponent, PagenotfoundComponent, PostComponent],
@@ -19,7 +21,8 @@ import { reducer } from '../store/auth/auth.reducer';
     CommonModule,
     RouterModule,
     SharedModule,
-    StoreModule.forFeature('auth',reducer)
+    StoreModule.forFeature('auth', reducer),
+    EffectsModule.forFeature([AuthEffects])
   ],
   exports: [LoginComponent, DetailComponent, ProfileComponent, PagenotfoundComponent]
 })

@@ -1,4 +1,9 @@
-import { createFeatureSelector, createSelector, MemoizedSelector } from '@ngrx/store';
+import {
+  createFeatureSelector,
+  createSelector,
+  MemoizedSelector
+} from "@ngrx/store";
+import { AuthActions, AuthAction } from "./auth.action";
 
 export interface AuthState {
   userName: string;
@@ -6,11 +11,14 @@ export interface AuthState {
 }
 
 const initAuth: AuthState = {
-  userName : 'ensaimr',
-  isLoggedIn : false
+  userName: "ensaimr",
+  isLoggedIn: false
 };
 // start working on Memoized
-const getAuthFeatureState: MemoizedSelector<object, AuthState> = createFeatureSelector<AuthState>('auth');
+const getAuthFeatureState: MemoizedSelector<
+  object,
+  AuthState
+> = createFeatureSelector<AuthState>("auth");
 
 export const getLoggedIn = createSelector(
   getAuthFeatureState,
@@ -22,9 +30,13 @@ export const getLoggedInUser = createSelector(
   state => state.userName
 );
 
-export function reducer(state: AuthState = initAuth, action): AuthState {
+export function reducer(
+  state: AuthState = initAuth,
+  action: AuthActions
+): AuthState {
   switch (action.type) {
-    case 'LOGGED_IN':
+    case AuthAction.LoginUserSuccess:
+    console.log('fasdf',action)
       return {
         ...state,
         isLoggedIn: action.payload.loggedIn,

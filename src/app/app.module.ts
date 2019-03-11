@@ -9,6 +9,8 @@ import { CoreModule } from './core/core.module';
 import { CoreRoutingModule } from './core/core-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './store/auth/auth.reducer';
+import { reducers } from './store/app.state';
+import { EffectsModule } from '@ngrx/effects';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { reducer } from './store/auth/auth.reducer';
     FormsModule,
     AppRoutingModule,
     PagesModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
